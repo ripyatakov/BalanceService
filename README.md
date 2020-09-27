@@ -26,10 +26,10 @@ db, err = sql.Open("mysql", "root:<password>@/<table_name>")
     Ответ: JSON { "msg": "OK" }
 Создание нового пользователя происходит при первом зачислении средств
 ### Списание средств пользователя
-1.    Пример запроса: http://localhost:8000/withdraw, POST, JSON: { "id1" :1 , "cnt" : 98}
-      Ответ: JSON { "msg": "OK" }
-2.    Пример запроса: http://localhost:8000/withdraw, POST, JSON: { "id1" :1 , "cnt" : 98}
-      Ответ: JSON { "msg": "Error. not balance enough" }    
+1.    Пример запроса: `http://localhost:8000/withdraw, POST, JSON: { "id1" :1 , "cnt" : 98}`
+      Ответ: `JSON { "msg": "OK" }`
+2.    Пример запроса: `http://localhost:8000/withdraw, POST, JSON: { "id1" :1 , "cnt" : 98}`
+      Ответ: `JSON { "msg": "Error. not balance enough" }`
 При недостаточном балансе или неправильном id пользователя присылается ошибка
  ### Обмен средствами между пользователями
       Пример запроса: `http://localhost:8000/, POST, JSON: { "id1" :1 , "id2" :2, "cnt" :123 }`
