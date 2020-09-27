@@ -184,5 +184,6 @@ func main() {
 	r.HandleFunc("/withdraw", withdrawMoney).Methods("POST")
 	r.HandleFunc("/trade", tradeMoney).Methods("POST")
 	r.HandleFunc("/{currency}", getMoney).Methods("POST")
+	r.HandleFunc("/", getMoney).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8000", r))
 }
