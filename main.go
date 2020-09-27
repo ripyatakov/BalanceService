@@ -89,7 +89,7 @@ func withdrawMoney(w http.ResponseWriter, r *http.Request){
 		rows.Scan(&balance)
 	}
 	if (balance <= 0 || balance < req.Count){
-		res.Message = "Error.2 not balance enough"
+		res.Message = "Error. not balance enough"
 		_ = json.NewEncoder(w).Encode(res)
 		return
 	} else {
