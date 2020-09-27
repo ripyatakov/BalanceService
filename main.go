@@ -66,7 +66,7 @@ func addMoney(w http.ResponseWriter, r *http.Request){
 
 	_, err = db.Exec("INSERT INTO balance_schema.balances VALUES (?, ?) ON DUPLICATE KEY UPDATE Balance = Balance + ?" , req.Id1, req.Count, req.Count)
 	if (err != nil){
-		res.Message = "Error. " + err.Error()
+		res.Message = "Error"
 		panic(err)
 	} else {
 		res.Message = "OK."
@@ -97,7 +97,7 @@ func withdrawMoney(w http.ResponseWriter, r *http.Request){
 		_, err = db.Exec("UPDATE balance_schema.balances SET Balance = ? WHERE Id = ?", balance, req.Id1)
 	}
 	if (err != nil){
-		res.Message = "Error " + err.Error()
+		res.Message = "Error"
 		panic(err)
 	} else {
 		res.Message = "OK."
@@ -132,7 +132,7 @@ func tradeMoney(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	if (err != nil){
-		res.Message = "Error " + err.Error()
+		res.Message = "Error"
 		panic(err)
 	} else {
 		res.Message = "OK."
@@ -155,7 +155,7 @@ func getMoney(w http.ResponseWriter, r *http.Request) {
 		rows.Scan(&balance)
 	}
 	if (err != nil || balance < 0){
-		res.Message = "Error " + err.Error()
+		res.Message = "Error"
 		_ = json.NewEncoder(w).Encode(res)
 		return
 	}
